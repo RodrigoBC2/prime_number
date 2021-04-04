@@ -10,20 +10,25 @@ def prime_number_check(x):
     else:
         prime = True
 
-        while n <= x:
+        while n*n <= x:
             if x % n == 0 and n != x:
-                print("Its not a prime number as it is a multiple of",n)
                 prime = False
-                break
+                return prime
 
             else:
                 n += 1
 
-        if prime == True:
-            print("The given number", x, "is a prime number")
+        return prime
 
 
 print("Number to check (must be integer and positive) if it is a prime number or not: ")
 
 x = int(input())
 
+result = prime_number_check(x)
+
+if result == False:
+    print("The given number", x, "IS NOT a prime number")
+
+else:
+    print("The given number", x, "IS a prime number")
