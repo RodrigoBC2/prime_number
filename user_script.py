@@ -20,7 +20,7 @@ def prime_range(a, b):
 print("Enter 2 integer numbers. The first number can not be zero and the second number must be greater than the first")
 
 a = int(input())
-b = int(input())
+b = int(input()) + 1
 
 while a >= b or a == 0:
 
