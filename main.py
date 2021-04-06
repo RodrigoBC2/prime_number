@@ -1,24 +1,20 @@
 # function to identify if a given number is prime or not.
 def prime_number_check(x):
     # defining the least prime number to make a proper range
-    n = 2
-
-    # if the given number is equal to 1 or 2, it is a prime number
-    if x == 1 or x ==2:
-        print("The given number,", x,", is a prime number")
+    if x < 1:
+        return False
 
     else:
-        prime = True
+        n = 2
 
-        while n*n <= x:
-            if x % n == 0 and n != x:
-                prime = False
-                return prime
+        while n * n <= x:
+            if x % n == 0:
+                return False
 
             else:
                 n += 1
 
-        return prime
+            return True
 
 
 print("Number to check (must be integer and positive) if it is a prime number or not: ")
@@ -27,7 +23,7 @@ x = int(input())
 
 result = prime_number_check(x)
 
-if result == False:
+if not result:
     print("The given number", x, "IS NOT a prime number")
 
 else:
