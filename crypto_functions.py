@@ -1,18 +1,20 @@
 # function to identify if a given number is prime or not.
 def prime_number_check(x):
-    # defining the least prime number to make a proper range
-    if x < 1:
-        return False
+    
+    if 1 <= x <= 3:
+        return True
+
+    elif x % 2 == 0:
+        return  False
 
     else:
-        n = 2
-
+        n = 3
         while n * n <= x:
             if x % n == 0:
                 return False
 
             else:
-                n += 1
+                n += 2
 
     return True
 
