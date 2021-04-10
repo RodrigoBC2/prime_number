@@ -34,3 +34,18 @@ def prime_range(a, b):
             prime_numbers_discovered.append(inputs)
 
     return prime_numbers_discovered
+
+
+def caesar_cypher(text, N):
+    transform_ascII = []
+    caesar_message = []
+    cypher_ascII = []
+
+    transform_ascII = [ord(n) for n in text]
+
+    # E(x) = (x + N)
+    cypher_ascII = [transform_ascII[transform_ascII.index(x)] + N for x in transform_ascII]
+
+    caesar_message = [chr(n) for n in cypher_ascII]
+    
+    return ''.join(caesar_message)
