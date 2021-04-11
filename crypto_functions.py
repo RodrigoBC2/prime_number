@@ -36,16 +36,30 @@ def prime_range(a, b):
     return prime_numbers_discovered
 
 
-def caesar_cypher(text, N):
-    transform_ascII = []
-    caesar_message = []
-    cypher_ascII = []
+# Function to cipher a message (caesar method) using a key (n)
+def caesar_cipher(original_text, n):
+    
+    # Array to save ascII numbers from the text
+    transform_asc_ii = [ord(i) for i in original_text]
 
-    transform_ascII = [ord(n) for n in text]
+    # Equation to transform the original text to ciphered text: E(x) = (x + N)
+    cipher_asc_ii = [transform_asc_ii[transform_asc_ii.index(x)] + n for x in transform_asc_ii]
+    
+    # Transforming ascII ciphered text to alphabet form
+    caesar_message = [chr(i) for i in cipher_asc_ii]
+    
+    # join method to deliver the message as suppose to be, since it was in a list.
+    return ''.join(caesar_message)
+
+
+# Function do decipher a given message using the same key as before (n)
+def caesar_decipher(caesar_text, n):
+
+    transform_asc_ii = [ord(i) for i in caesar_text]
 
     # E(x) = (x + N)
-    cypher_ascII = [transform_ascII[transform_ascII.index(x)] + N for x in transform_ascII]
+    original_asc_ii = [transform_asc_ii[transform_asc_ii.index(x)] - n for x in transform_asc_ii]
 
-    caesar_message = [chr(n) for n in cypher_ascII]
-    
-    return ''.join(caesar_message)
+    original_message = [chr(i) for i in original_asc_ii]
+
+    return ''.join(original_message)
