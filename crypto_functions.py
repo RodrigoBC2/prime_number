@@ -21,19 +21,8 @@ def prime_number_check(x):
 
 # verify and save all prime numbers withing a given range.
 def prime_range(a, b):
-    
-    user_inputs = range(a, b + 1)
-
-    prime_numbers_discovered = []
-
-    for inputs in user_inputs:
-
-        prime_return = prime_number_check(inputs)
-
-        if prime_return:
-            prime_numbers_discovered.append(inputs)
-
-    return prime_numbers_discovered
+   
+    return prime_numbers_discovered = [prime_number_check(inputs) for inputs in range(a, b+1)]
 
 
 # Function to cipher a message (caesar method) using a key (n)
