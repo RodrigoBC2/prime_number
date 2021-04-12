@@ -22,7 +22,7 @@ def prime_number_check(x):
 # verify and save all prime numbers withing a given range.
 def prime_range(a, b):
    
-    return prime_numbers_discovered = [prime_number_check(inputs) for inputs in range(a, b+1)]
+    return [prime_number_check(inputs) for inputs in range(a, b+1)]
 
 
 # Function to cipher a message (caesar method) using a key (n)
