@@ -32,7 +32,7 @@ def caesar_cipher(original_text, n):
     transform_asc_ii = [ord(i) for i in original_text]
 
     # Equation to transform the original text to ciphered text: E(x) = (x + N)
-    cipher_asc_ii = [transform_asc_ii[transform_asc_ii.index(x)] + n for x in transform_asc_ii]
+    cipher_asc_ii = [x + n for x in transform_asc_ii]
     
     # Transforming ascII ciphered text to alphabet form
     caesar_message = [chr(i) for i in cipher_asc_ii]
@@ -47,7 +47,7 @@ def caesar_decipher(caesar_text, n):
     transform_asc_ii = [ord(i) for i in caesar_text]
 
     # E(x) = (x + N)
-    original_asc_ii = [transform_asc_ii[transform_asc_ii.index(x)] - n for x in transform_asc_ii]
+    original_asc_ii = [x - n for x in transform_asc_ii]
 
     original_message = [chr(i) for i in original_asc_ii]
 
