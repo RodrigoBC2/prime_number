@@ -52,3 +52,25 @@ def caesar_decipher(caesar_text, n):
     original_message = [chr(i) for i in original_asc_ii]
 
     return ''.join(original_message)
+
+
+def decipher_input(ciphered_input):
+
+    with open('words_dictionary.json', 'r') as en_dict:
+
+        check = True
+        while check:
+            n = 0
+
+            deciphered_text = caesar_decipher(ciphered_input, n)
+
+            for i in range(0,len(deciphered_text)):
+
+                if deciphered_text[i] in en_dict:
+
+                    return deciphered_text
+
+            else:
+                n += 1
+
+            check = False
