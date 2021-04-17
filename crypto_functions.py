@@ -56,21 +56,9 @@ def caesar_decipher(caesar_text, n):
 
 def decipher_input(ciphered_input):
 
-    with open('words_dictionary.json', 'r') as en_dict:
+    file = open("words.txt", "r")
+    all_words = [word.replace('\n', '') for word in file]
 
-        check = True
-        while check:
-            n = 0
+    text_input = [caesar_decipher(ciphered_input, i) for i in range(0, 25) if caesar_decipher(ciphered_input, i) in all_words]
 
-            deciphered_text = caesar_decipher(ciphered_input, n)
-
-            for i in range(0,len(deciphered_text)):
-
-                if deciphered_text[i] in en_dict:
-
-                    return deciphered_text
-
-            else:
-                n += 1
-
-            check = False
+    return text_input
