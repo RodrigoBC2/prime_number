@@ -57,8 +57,9 @@ def caesar_decipher(caesar_text, n):
 def decipher_input(ciphered_input):
 
     file = open("words.txt", "r")
-    all_words = [word.replace('\n', '') for word in file]
+    all_words = [word.upper().replace('\n', '') for word in file]
 
-    text_input = [caesar_decipher(ciphered_input, i) for i in range(0, 25) if caesar_decipher(ciphered_input, i) in all_words]
+
+    text_input = [caesar_decipher(ciphered_input, i).upper() for i in range(0, 25)]
 
     return text_input
