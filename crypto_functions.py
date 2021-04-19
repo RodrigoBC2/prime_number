@@ -55,11 +55,29 @@ def caesar_decipher(caesar_text, n):
 
 
 def decipher_input(ciphered_input):
+    decrypted_text = None
+    valid_text = None
+    max_score = 0
+    score = 0
 
     file = open("words.txt", "r")
+
+    # make sure that any punctuation would not interfere when comparing the decrypted text with the words
     all_words = [word.upper().replace('\n', '') for word in file]
 
+    # cycling through all english alphabet rotations to identify witch rotation makes sense
+    for i in range(0,26):
+        decrypted_text = caesar_decipher(ciphered_input, i).upper()
 
-    text_input = [caesar_decipher(ciphered_input, i).upper() for i in range(0, 25)]
+    # cleaning the punctuations on the decrypted text and compare it with the words of txt file.
+        for word in decrypted_text.split(' '):
+            word_without_punctuation = ''.join(ch for ch in word.upper() if ch not in set(string.punctuation))
+            if word_without_punctuation in all_words:
+                score += 1
 
-    return text_input
+    # if the words are founded, then the decrypted text is saved as the last known possibility and the amount of words founded to.
+        if score > max_score:
+            max_score = score
+            valid_text = decrypted_text
+
+    return valid_text
