@@ -97,7 +97,7 @@ def vigenere_cipher(input_text, input_keyword):
     extended_key = input_keyword * (len(input_text) // len(input_keyword) + 1)
     extended_key_target = extended_key[:len(input_text)]
 
-    # transrform the key string in a list
+    # transform the key string in a list
     extended_key_list = [char for char in extended_key_target]
 
     # save all rotations based on key position in original alphabet
@@ -107,7 +107,7 @@ def vigenere_cipher(input_text, input_keyword):
     
     transform_asc_ii = [ord(char) for char in input_text]
     
-    # concatenate each list position, the given key rotation and original letter position.
+    # concatenate the given key rotation position and original letter position.
     cipher_asc_ii = []
     for i in range(len(extended_key_list)):
         cipher_asc_ii.append(rotation_key[i] + transform_asc_ii[i])
