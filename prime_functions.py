@@ -23,3 +23,20 @@ def prime_number_check(x):
 def prime_range(a, b):
    
     return [inputs for inputs in range(a,b+1) if prime_number_check(inputs)]
+
+
+# function to generate prime numbers from a start number to a specific amount greater than the given one.
+def generate_primes(from_number, amount):
+
+    start = 0
+    found_prime_numbers = []
+
+    while start <= amount:
+        from_number += 1
+        
+        if prime_number_check(from_number):
+            found_prime_numbers.append(from_number)
+
+        start += 1
+
+    return found_prime_numbers
