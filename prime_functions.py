@@ -36,3 +36,22 @@ def generate_primes(from_number, amount):
         from_number += 1
 
     return found_prime_numbers
+
+
+def eratosthenes(limit_input):
+
+    prime_list = [i for i in range(1, limit_input+1)]
+
+    n = 2
+
+    while n*n <= limit_input:
+        
+        if n in prime_list:
+            
+            for j in range(n*2, limit_input+1, n):
+                if j in prime_list:
+                    prime_list.remove(j)
+
+        n += 1
+
+    return prime_list
