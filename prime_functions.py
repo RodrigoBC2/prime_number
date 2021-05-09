@@ -72,10 +72,8 @@ def miller_rabin(n,k):
         return False
 
     r = 0
-    s = 0
-    n = -1
-    
-    # This while loop is infinite
+    s = n - 1    
+   
     while s % 2 == 0:
         r += 1
         s //= 2
