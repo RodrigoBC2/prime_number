@@ -65,7 +65,7 @@ import random
 # if True os returned it is probably true that n is prime
 def miller_rabin(n,k):
 
-    if n == 2:
+    if 1 <= n <= 3:
         return True
 
     if n % 2 == 0:
