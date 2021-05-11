@@ -96,3 +96,16 @@ def miller_rabin(n,k):
             return False
 
     return True
+
+
+def large_primes_generator():
+    import random
+
+    p = random.getrandbits(512)
+    q = random.getrandbits(512)
+
+    while miller_rabin(p, 40) == False and miller_rabin(q, 40) == False:
+        p = random.getrandbits(512)
+        q = random.getrandbits(512)
+
+    return {1: p, 2: q}
