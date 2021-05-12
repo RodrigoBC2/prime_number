@@ -98,7 +98,7 @@ def miller_rabin(n,k):
     return True
 
 
-def large_primes_generator():
+def large_prime_generator():
     import random
 
     p = random.getrandbits(512)
@@ -108,4 +108,17 @@ def large_primes_generator():
         p = random.getrandbits(512)
         q = random.getrandbits(512)
 
-    return {1: p, 2: q}
+    n = p * q
+
+    phi_n = (p-1) * (q-1)
+
+    # can be an input from user. just generating a random number to save time.
+    # 1 < e < phi_n
+    e = random.getrandbits(phi_n - 1)
+
+    while e == p or e == q or e == 1:
+        e = random.getrandbits(phi_n - 1)
+
+    d = (k*phi_n + 1)/e
+
+    return p, q, n, phi_n, e, d
