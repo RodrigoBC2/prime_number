@@ -97,9 +97,9 @@ def miller_rabin(n,k):
 
     return True
 
-
 def large_prime_generator():
     import random
+    import math
 
     p = random.getrandbits(512)
     q = random.getrandbits(512)
@@ -112,12 +112,12 @@ def large_prime_generator():
 
     phi_n = (p-1) * (q-1)
 
-    # can be an input from user. just generating a random number to save time.
-    # 1 < e < phi_n
-    e = random.getrandbits(phi_n - 1)
 
-    while e == p or e == q or e == 1:
-        e = random.getrandbits(phi_n - 1)
+    e = random.getrandbits(511)
+
+    # getting the first number that the greatest common divisor is iqual to 1
+    while math.gcd(e, phi_n) != 1 and e == 1:
+        e = random.getrandbits(511)
 
     d = (k*phi_n + 1)/e
 
