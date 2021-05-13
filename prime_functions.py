@@ -112,12 +112,14 @@ def large_prime_generator():
 
     phi_n = (p-1) * (q-1)
 
-
-    e = random.getrandbits(511)
-
     # getting the first number that the greatest common divisor is iqual to 1
-    while math.gcd(e, phi_n) != 1 and e == 1:
+    while True:
+
         e = random.getrandbits(511)
+        f = math.gcd(e, phi_n)
+
+        if f == 1 and e != 1:
+            break
 
     d = (k*phi_n + 1)/e
 
