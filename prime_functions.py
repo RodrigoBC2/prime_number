@@ -121,10 +121,15 @@ def large_prime_generator():
         if f == 1 and e != 1:
             break
 
-    while True :
-        k = random.getrandbits(512)
+   k = 1
+   while True :
+
         d = (k * phi_n + 1) / e
-        if isinstance(d, int):
+
+        if (k * phi_n + 1) % e == 0:
+            d = int(d)
             break
+            
+        else: k += 1
 
     return p, q, n, phi_n, e, d
